@@ -1,13 +1,13 @@
 # MicroPython ST7735 TFT display driver example usage
 
 from machine import Pin, SPI
-from Libraries.ST7735 import Display
-from Libraries.ST7735 import Fonts
-from Libraries.Widgets import Gauges
-from Libraries.Widgets import Diagnostics
-from Libraries.ConfigReader import ConfigReader
-from Libraries.ConnectionHandler import WifiController
-from Libraries.ConnectionHandler import ServerController
+from ESP8266Libraries.ST7735 import Display
+from ESP8266Libraries.ST7735 import Fonts
+from ESP8266Libraries.Widgets import Gauges
+from ESP8266Libraries.Widgets import Diagnostics
+from ESP8266Libraries.ConfigReader import ConfigReader
+from ESP8266Libraries.ConnectionHandler import WifiController
+from ESP8266Libraries.ConnectionHandler import ServerController
 
 import utime
 import dht
@@ -44,7 +44,7 @@ oLogger.LogTaskStart( "SERVER" )
 oServerController = ServerController.ServerController()
 oLogger.LogTaskResult( oServerController.init() )
 
-#d = dht.DHT22(Pin(15))
+#d = dht.DHT22(Pin(10))
 #measures = 0
 # while( True ):
 #
