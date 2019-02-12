@@ -25,24 +25,23 @@ oLogger = Diagnostics.TFTStatusLogger( oTFT )
 oLogger.init()
 
 oLogger.LogTaskStart( "LCD" )
-oLogger.LogTaskResult( True )
+oLogger.LogTaskResult( True ) # yep, im dead serious
 
 oLogger.LogTaskStart( "CONFIG" )
 oConfigReader = ConfigReader.ConfigReader()
 oLogger.LogTaskResult( oConfigReader.init() )
 
 oLogger.LogTaskStart( "WIFI" )
-sSSID, sPassword = oConfigReader.GetWifiConfig()
 oNetworkController = WifiController.WifiController()
 oLogger.LogTaskResult( oNetworkController.init() )
 
 oLogger.LogTaskStart( "CONNECTION" )
-oNetworkController.ConnectToWifi( sSSID, sPassword )
+oNetworkController.ConnectToWifi( *oConfigReader.GetWifiConfig() )
 oLogger.LogTaskResult( oNetworkController.IsConnected() )
 
 oLogger.LogTaskStart( "SERVER" )
 oServerController = ServerController.ServerController()
-oLogger.LogTaskResult( oServerController.init() )
+oLogger.LogTaskResult( oServerController.init( *oConfigReader.GetServerConfig() ) )
 
 #d = dht.DHT22(Pin(10))
 #measures = 0
