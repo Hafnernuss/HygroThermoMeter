@@ -1,0 +1,3 @@
+[submodule "ESP8266Libraries"]
+	path = ESP8266Libraries
+	url = https://github.com/Hafnernuss/ESP8266Libraries.git
